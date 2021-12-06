@@ -8,6 +8,7 @@
 
 <div class="container body-content">
     <h2>Kaboodles</h2>
+    <h3>Home Services</h3>
     <ul>
         <li th:each="job : ${jobs}">
             <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
