@@ -1,14 +1,14 @@
-package org.launchcode.techjobs.persistent;
+package lift.off.project;
 
+import lift.off.project.controllers.EmployerController;
+import lift.off.project.controllers.SkillController;
 import mockit.Expectations;
 import mockit.Mocked;
 import org.junit.jupiter.api.Test;
-import org.launchcode.techjobs.persistent.controllers.EmployerController;
-import org.launchcode.techjobs.persistent.controllers.SkillController;
-import org.launchcode.techjobs.persistent.models.Employer;
-import org.launchcode.techjobs.persistent.models.Skill;
-import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
-import org.launchcode.techjobs.persistent.models.data.SkillRepository;
+import lift.off.project.models.Employer;
+import lift.off.project.models.Skill;
+import lift.off.project.models.data.EmployerRepository;
+import lift.off.project.models.data.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

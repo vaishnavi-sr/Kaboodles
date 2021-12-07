@@ -1,11 +1,11 @@
-package org.launchcode.techjobs.persistent.controllers;
+package lift.off.project.controllers;
 
-import org.launchcode.techjobs.persistent.models.Employer;
-import org.launchcode.techjobs.persistent.models.Job;
-import org.launchcode.techjobs.persistent.models.Skill;
-import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
-import org.launchcode.techjobs.persistent.models.data.JobRepository;
-import org.launchcode.techjobs.persistent.models.data.SkillRepository;
+import lift.off.project.models.Employer;
+import lift.off.project.models.Job;
+import lift.off.project.models.Skill;
+import lift.off.project.models.data.EmployerRepository;
+import lift.off.project.models.data.JobRepository;
+import lift.off.project.models.data.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -60,3 +60,9 @@ div.job-listing {
     width: 80%;
     background-color: #e4e4e4;
 }
+
+img{
+ width: 350px;
+ height: 350px;
+ margin: 10px 25px 25px 10px;
+ }

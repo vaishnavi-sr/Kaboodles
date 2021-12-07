@@ -1,13 +1,13 @@
-package org.launchcode.techjobs.persistent;
+package lift.off.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaWebDevTechjobsPersistentApplication {
+public class LiftOffProject {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JavaWebDevTechjobsPersistentApplication.class, args);
+		SpringApplication.run(LiftOffProject.class, args);
 	}
 
 }

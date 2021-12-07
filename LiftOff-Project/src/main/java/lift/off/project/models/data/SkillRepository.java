@@ -1,6 +1,6 @@
-package org.launchcode.techjobs.persistent.models.data;
+package lift.off.project.models.data;
 
-import org.launchcode.techjobs.persistent.models.Skill;
+import lift.off.project.models.Skill;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

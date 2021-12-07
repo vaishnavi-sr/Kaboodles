@@ -1,4 +1,4 @@
-package org.launchcode.techjobs.persistent.models;
+package lift.off.project.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;

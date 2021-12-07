@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:width="http://www.w3.org/1999/xhtml"
+      xmlns:height="http://www.w3.org/1999/xhtml" xmlns:margin="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments :: head">
 </head>
 <body>
@@ -9,11 +10,37 @@
 <div class="container body-content">
     <h2>Kaboodles</h2>
     <h3>Home Services</h3>
-    <ul>
-        <li th:each="job : ${jobs}">
-            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
-        </li>
+    <h4><ul>
+        <li>Plumbing</li>
+        <li>Carpentry</li>
+        <li>Painter</li>
+        <li>Handyman</li>
+        <li>House Cleaning</li>
     </ul>
+    </h4>
+    <div>
+        <p>
+        When you need help around the house Kaboodle it!<br>
+        As a pro you can find customers.<br>
+        As a customer you can hire pro's that can help you start or finish a project.
+        </p>
+    </div>
+
+
+    <div>
+        <img src="../static/Images/R.png" th:src="@{../Images/R.png}"/>
+
+<!--        <link href="../static/CSS/things.css" th:href="@{/CSS/things.css}" rel="stylesheet" media="all" type="text/css"-->
+<!--        <img  src="Images/R.jpg" alt="Cycling saves nature too..">-->
+<!--        <img src="resources/Images/R.jpg">-->
+    </div>
+
+
+    <!--    <ul>-->
+<!--        <li th:each="job : ${jobs}">-->
+<!--            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>-->
+<!--        </li>-->
+<!--    </ul>-->
 
 </div>
 
