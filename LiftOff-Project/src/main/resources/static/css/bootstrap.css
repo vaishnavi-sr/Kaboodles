@@ -6755,3 +6755,14 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+img{
+ width: 750px;
+ height: 350px;
+ margin: 10px 25px 25px 10px;
+ }
+
+ body {
+
+ background-image:url('../images/R.jpg')
+ margin: 0;
+ }
