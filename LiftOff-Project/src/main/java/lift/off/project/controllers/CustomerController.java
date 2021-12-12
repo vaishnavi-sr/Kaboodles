@@ -1,8 +1,7 @@
 package lift.off.project.controllers;
 
 import lift.off.project.models.Employer;
-import lift.off.project.models.data.CustomersRepository;
-import lift.off.project.models.data.EmployerRepository;
+import lift.off.project.models.data.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
