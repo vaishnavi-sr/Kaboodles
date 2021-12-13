@@ -19,38 +19,38 @@ public abstract class AbstractEntity2 {
         public int getId() {
             return id;
         }
-    @NotBlank(message = "First Name is required")
-    @Size(max = 50, message = "Must be within 50 characters")
-    private String firstName;
+//    @NotBlank(message = "First Name is required")
+//    @Size(max = 50, message = "Must be within 50 characters")
+//    private String firstName;
+//
+//    @NotBlank(message = "Last Name is required")
+//    @Size(max = 50, message = "Must be within 50 characters")
+//    private String lastName;
+//
+//    @NotBlank(message = "Email is required")
+//    @Size(max = 50, message = "Must be within 50 characters")
+//    private String email;
+//
+//    @NotBlank(message = "Password is required")
+//    @Size(max = 50, message = "Must be within 50 characters")
+//    private String password;
 
-    @NotBlank(message = "Last Name is required")
-    @Size(max = 50, message = "Must be within 50 characters")
-    private String lastName;
 
-    @NotBlank(message = "Email is required")
-    @Size(max = 50, message = "Must be within 50 characters")
-    private String email;
-
-    @NotBlank(message = "Password is required")
-    @Size(max = 50, message = "Must be within 50 characters")
-    private String password;
-
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
+//
+//    public String getLastName() {
+//        return lastName;
+//    }
+//
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
 
     @Override
     public boolean equals(Object o) {
