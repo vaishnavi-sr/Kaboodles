@@ -6756,6 +6756,7 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 img{
+ background-image: canvas;
  width: 750px;
  height: 350px;
  margin: 10px 25px 25px 10px;
