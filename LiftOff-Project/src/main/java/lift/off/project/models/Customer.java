@@ -1,8 +1,8 @@
 package lift.off.project.models;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class Customer extends  AbstractEntity2 {
 //    private String password;
 
         @OneToMany
-        @JoinColumn(name = "employer_id")
+        @JoinColumn(name = "customer_id")
         private final List<HomeServices> homeServices = new ArrayList<>();
 
 //    public int getId() {
