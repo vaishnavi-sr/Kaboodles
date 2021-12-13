@@ -1,5 +1,6 @@
 package lift.off.project.controllers;
 
+import lift.off.project.models.Customer;
 import lift.off.project.models.Employer;
 import lift.off.project.models.data.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class CustomerController {
 
         Optional optCustomer = customerRepository.findById(customerId);
         if (optCustomer.isPresent()){
-            Employer employer = (Employer) optCustomer.get();
+            Customer customer = (Customer) optCustomer.get();
             model.addAttribute("customer", customer);
             return "customers/view";
         } else {
