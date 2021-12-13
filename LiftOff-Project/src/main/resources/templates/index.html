@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org/" xmlns:width="http://www.w3.org/1999/xhtml"
+
 
       xmlns:height="http://www.w3.org/1999/xhtml" xmlns:margin="http://www.w3.org/1999/xhtml" xmlns:c="">
 <head th:replace="fragments :: head">
-    <c:url value="/images/Screenshot(70).png" var="Screenshot"/>
 </head>
 <body>
 
@@ -26,14 +27,21 @@
         As a pro you can find customers.<br>
         As a customer you can hire pro's that can help you start or finish a project.
         </p>
-
+        <img th:src="@{/images/R.jpg}" />
     </div>
 
 
-    <div>
-        <img th:src="@{/images/R.jpg}" alt="">
+    <div class="container body-content">
+        <img th:src="@{${'images/R.jpg'}}"/>
+        <img th:src="@{/images/R.jpg}" />
 
     </div>
+<!--    <div>-->
+<!--        <img src="${pageContext.request.contextPath}/resources/images/R.jpg"/>-->
+
+<!--    </div>-->
+
+
 
 
 
@@ -53,7 +61,7 @@
 <!--        <img src="../images/kaboodlesImage.jpg">-->
 <!--    </div>-->
 
-</div>
+
 
 </body>
 </html>

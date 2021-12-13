@@ -37,7 +37,7 @@ public abstract class AbstractEntity {
     @Override
     public String toString() {
         return name;
-    }
+   }
 
     @Override
     public boolean equals(Object o) {
