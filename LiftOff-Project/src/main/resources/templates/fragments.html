@@ -18,6 +18,10 @@
         <div class="navbar-header">
             <a th:href="@{/}" class="navbar-brand">Kaboodles</a>
         </div>
+        <ul class="nav" style="float:right;">
+            <li th:if="${session.user}" class="nav navbar-nav"><a class="nav-link" href="/logout">Log out</a></li>
+        </ul>
+
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 <!--                <li><a th:href="@{/list}">List</a></li>-->
@@ -25,7 +29,8 @@
 <!--                <li><a th:href="@{/add}">Add Jobs</a></li>-->
                 <li><a th:href="@{/add}">Join as a Customer</a></li>
                 <li><a th:href="@{/add}">Join as a pro</a></li>
-                <li><a th:href="@{/login}">Log In</a></li>
+                <li th:unless="${session.user}"><a th:href="@{/login}">Log In</a></li>
+                <li th:text="${session.user}"/></li>
             </ul>
         </div>
     </div>
