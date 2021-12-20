@@ -1,21 +1,8 @@
-package lift.off.project.models;
+package models.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-@Entity
-public class Pro  {
-
-    @Id
-    @GeneratedValue
-    @NotNull
-    private int id;
-
-    public int getId() {
-        return id;
-    }
+public class ProServiceDTO {
 
     @NotNull
     private int registeredProID;
@@ -25,13 +12,10 @@ public class Pro  {
 
 
 
+
+
     @NotNull
     private String location;
-
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getRegisteredProID() {
         return registeredProID;
@@ -50,6 +34,7 @@ public class Pro  {
     }
 
 
+
     public String getLocation() {
         return location;
     }
@@ -57,14 +42,4 @@ public class Pro  {
     public void setLocation(String location) {
         this.location = location;
     }
-
-
-
-
-    public Pro() {}
-
-
 }
-
-
-

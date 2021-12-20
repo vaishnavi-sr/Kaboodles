@@ -77,12 +77,19 @@ public class AuthenticationController{
             return "register";
         }
 
-        User newUser = new User(registerFormDTO.getFirstName(), registerFormDTO.getLastName(), registerFormDTO.getUsername(), registerFormDTO.getPassword(), registerFormDTO.getUsername());
+        User newUser = new User(registerFormDTO.getUsername(),registerFormDTO.getPassword(), registerFormDTO.getFirstName(),registerFormDTO.getFirstName(), registerFormDTO.getLastName(),registerFormDTO.getRegisteredType());
 
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:";
+        if(newUser.getRegisteredType().equals("Customer")){
+            return "customer/listServices";
+        }else {
+           // model.addAttribute("title", "ProServiceRegister");
+            //model.addAttribute("proServiceDTO",new ProServiceDTO());
+           // return "proService/create";
+            return "redirect:proService/create";
+        }
     }
 //    For Login
 

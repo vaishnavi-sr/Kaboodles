@@ -8,6 +8,8 @@ public class RegisterFormDTO extends LoginFormDTO {
 
     private String verifyPassword;
 
+    private String registeredType;
+
     public RegisterFormDTO() {
 
     }
@@ -35,5 +37,13 @@ public class RegisterFormDTO extends LoginFormDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getRegisteredType() {
+        return registeredType;
+    }
+
+    public void setRegisteredType(String registeredType) {
+        this.registeredType = registeredType;
     }
 }

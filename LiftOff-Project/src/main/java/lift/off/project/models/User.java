@@ -26,18 +26,20 @@ public class User extends AbstractEntity {
     @Size(max=60)
     private String pwHash;
 
-
-
+    @NotNull
+    @Size(max=20)
+    private String registeredType;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 
-    public User(String username, String password,String name, String firstName, String lastName) {
+    public User(String username, String password,String name, String firstName, String lastName,String registeredType) {
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.pwHash = encoder.encode(password);
+        this.registeredType=registeredType;
         super.setName(name);
     }
 
@@ -66,4 +68,14 @@ public class User extends AbstractEntity {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public String getRegisteredType() {
+        return registeredType;
+    }
+
+    public void setRegisteredType(String registeredType) {
+        this.registeredType = registeredType;
+    }
+
+
 }

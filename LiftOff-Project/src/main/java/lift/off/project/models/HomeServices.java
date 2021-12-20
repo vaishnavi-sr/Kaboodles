@@ -1,14 +1,8 @@
 package lift.off.project.models;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import java.util.ArrayList;
-import java.util.List;
+//@Entity
+public class HomeServices{
 
-@Entity
-public class HomeServices extends AbstractEntity {
 
 
 //        @ManyToOne
