@@ -1,8 +1,12 @@
 package lift.off.project.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer extends  AbstractEntity2 {
@@ -19,21 +23,13 @@ public class Customer extends  AbstractEntity2 {
     @Size(max = 50, message = "Must be within 50 characters")
     private String email;
 
-    @NotBlank(message = "Password is required")
-    @Size(max = 50, message = "Must be within 50 characters")
-    private String password;
 
-      //  @OneToMany
-       // @JoinColumn(name = "customer_id")
-        //private final List<HomeServices> homeServices = new ArrayList<>();
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    @ManyToMany
+    @JoinColumn(name = "customer_id")
+    private final List<HomeServices> homeServices = new ArrayList<>();
+
+
 
     public String getFirstName() {
         return firstName;
@@ -59,13 +55,6 @@ public class Customer extends  AbstractEntity2 {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public Customer() {}
 

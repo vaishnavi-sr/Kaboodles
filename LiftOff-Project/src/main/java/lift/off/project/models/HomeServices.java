@@ -1,43 +1,40 @@
 package lift.off.project.models;
 
-//@Entity
-public class HomeServices{
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class HomeServices extends AbstractEntity {
+
+    @ManyToMany(mappedBy = "homeServices")
+    private List<Job> jobs = new ArrayList<Job>();
+
+    @NotBlank(message = "Description is required")
+    @Size(max = 500 , message = "Description must be less than 500 characters")
+    private String description;
 
 
+    public String getDescription() {
+        return description;
+    }
 
-//        @ManyToOne
-//        @JoinColumn(name = "employer_id")
-//        private Employer employer;
-//
-//        @ManyToMany
-//        private List<Skill> skills = new ArrayList<>();
-//
-//        public Job(){
-//        }
-//
-//        public Job(Employer anEmployer, List<Skill> someSkills) {
-//            super();
-//            this.employer = anEmployer;
-//            this.skills = someSkills;
-//        }
-//
-//        // Getters and setters.
-//
-//        public Employer getEmployer() {
-//            return employer;
-//        }
-//
-//        public void setEmployer(Employer employer) {
-//            this.employer = employer;
-//        }
-//
-//        public List<Skill> getSkills() {
-//            return skills;
-//        }
-//
-//        public void setSkills(List<Skill> skills) {
-//            this.skills = skills;
-//        }
-//    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Skill() {}
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
+
 
 }
