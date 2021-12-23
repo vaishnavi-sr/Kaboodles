@@ -23,7 +23,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
 //    home page that does not require being logged in to view, Whitelist
 
-    private static final List<String> whitelist = Arrays.asList("/index","/login", "/register", "/logout", "/css");
+    private static final List<String> whitelist = Arrays.asList("/index","/login", "/register", "/logout","/css","/images");
 
 //    check whether  a given request is whitelisted or not.
 

@@ -9,4 +9,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     User findByUsername(String username);
 
+  //  @Query (from User user where user.registeredType={})
+    //User findByRegisteredType(String registeredType);
+
 }

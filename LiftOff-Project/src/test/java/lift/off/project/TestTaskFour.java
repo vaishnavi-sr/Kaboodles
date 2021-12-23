@@ -1,7 +1,7 @@
 package lift.off.project;
 
 import lift.off.project.models.data.EmployerRepository;
-import lift.off.project.models.data.SkillRepository;
+import lift.off.project.models.data.HomeServiceRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -170,7 +170,7 @@ public class TestTaskFour extends AbstractTest {
             fail("ListController must have a skillRepository field");
         }
 
-        assertEquals(SkillRepository.class, skillRepositoryField.getType());
+        assertEquals(HomeServiceRepository.class, skillRepositoryField.getType());
         assertNotNull(skillRepositoryField.getAnnotation(Autowired.class));
     }
 
