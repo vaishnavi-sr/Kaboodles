@@ -1,7 +1,4 @@
-package lift.off.project.models.data;
-
-import lift.off.project.models.AbstractEntity2;
-import lift.off.project.models.HomeServices;
+package lift.off.project.models;
 
 
 import javax.persistence.Entity;
@@ -15,7 +12,7 @@ import java.util.List;
 public class ProSkill extends AbstractEntity2 {
 
     @ManyToMany(mappedBy = "proSkills")
-    private List<HomeServices> homeServices = new ArrayList<HomeServices>();
+    private List<HomeService> homeServices = new ArrayList<HomeService>();
 
     @NotBlank(message = "Description is required")
     @Size(max = 500 , message = "Description must be less than 500 characters")
@@ -32,11 +29,11 @@ public class ProSkill extends AbstractEntity2 {
 
     public ProSkill() {}
 
-    public List<HomeServices> getHomeServices() {
+    public List<HomeService> getHomeServices() {
         return homeServices;
     }
 
-    public void setHomeServices(List<HomeServices> homeServices) {
+    public void setHomeServices(List<HomeService> homeServices) {
         this.homeServices = homeServices;
     }
 

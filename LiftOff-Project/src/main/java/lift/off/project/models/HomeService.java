@@ -8,23 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class HomeServices extends AbstractEntity2 {
+public class HomeService extends AbstractEntity2 {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @ManyToMany
-    private List<Skill> skills = new ArrayList<>();
+    private List<ProSkill> proSkills = new ArrayList<>();
 
 
-    public HomeServices(){
+    public HomeService(){
     }
 
-    public HomeServices(Customer aCustomer, List<Skill> someSkills) {
+    public HomeService(Customer aCustomer, List<ProSkill> someSkills) {
         super();
         this.customer = aCustomer;
-        this.skills = someSkills;
+        this.proSkills = someSkills;
     }
 
     public Customer getCustomer() {
@@ -35,11 +35,11 @@ public class HomeServices extends AbstractEntity2 {
         this.customer = customer;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
+    public List<ProSkill> getProSkills() {
+        return proSkills;
     }
 
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
+    public void setProSkills(List<ProSkill> proSkills) {
+        this.proSkills = proSkills;
     }
 }

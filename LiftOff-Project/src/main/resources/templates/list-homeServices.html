@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+   <table class="homeService-listing">
+      <tr th:each="homeService : ${homeServices}">
+         <td>
+            <p>
+               HomeService Id:
+               <a th:href="@{'/view/' + ${homeService.id}}" th:text="${homeService.id}"></a>
+            </p>
+            <p th:text="${'Name: ' + homeService.name}"></p>
+            <p>
+              Customer:
+               <a th:href="@{'/customers/view/' + ${homeService.customer.id}}" th:text="${homeService.customer.name}"></a>
+            </p>
+            <p>
+               ProSkills:
+            <ul th:each="proSkill : ${homeService.proSkills}">
+               <li>
+                  <a th:href="@{'/proSkills/view/' + ${proSkill.id}}" th:text="${proSkill.name}"></a>
+               </li>
+            </ul>
+            </p>
+         </td>
+      </tr>
+   </table>
+
+</div>
+
+</body>
+</html>
