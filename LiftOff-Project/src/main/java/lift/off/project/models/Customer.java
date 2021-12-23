@@ -1,9 +1,12 @@
 package lift.off.project.models;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +22,40 @@ public class Customer extends  AbstractEntity2 {
     @Size(max = 50, message = "Must be within 50 characters")
     private String lastName;
 
-    @NotBlank(message = "Email is required")
+    @NotNull(message = "Email is required")
     @Size(max = 50, message = "Must be within 50 characters")
     private String email;
 
+    @NotNull
+    @Size(max=60)
+    private String pwHash;
+
+    @NotNull
+    @Size(max=20)
+    private String registeredType;
 
 
-    @ManyToMany
-    @JoinColumn(name = "customer_id")
-    private final List<HomeServices> homeServices = new ArrayList<>();
+//    @ManyToMany
+//    @JoinColumn(name = "customer_id")
+//    private final List<HomeServices> homeServices = new ArrayList<>();
 
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+    public Customer(String email, String password,String name, String firstName, String lastName,String registeredType) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.pwHash = encoder.encode(password);
+        this.registeredType=registeredType;
+        super.setName(name);
+    }
+
+    public Customer() {}
+
+    public Boolean isMatchingPassword(String password){
+        return encoder.matches(password,pwHash);
+    }
 
     public String getFirstName() {
         return firstName;
@@ -55,9 +81,12 @@ public class Customer extends  AbstractEntity2 {
         this.email = email;
     }
 
-
-    public Customer() {}
-
-
+    public String getRegisteredType() {
+        return registeredType;
     }
+
+    public void setRegisteredType(String registeredType) {
+        this.registeredType = registeredType;
+    }
+}
 

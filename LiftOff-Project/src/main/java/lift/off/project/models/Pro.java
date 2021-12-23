@@ -19,10 +19,10 @@ public class Pro  {
 
     @NotNull
     private int registeredProID;
+    //optional registration(Might Use Later)
 
     @NotNull
     private String homeServiceType;
-
 
 
     @NotNull
@@ -57,7 +57,6 @@ public class Pro  {
     public void setLocation(String location) {
         this.location = location;
     }
-
 
 
 
