@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<p th:unless="${viewProDTO} and ${viewProDTO.size()}">no jobs!</p>
+
+<!--<ul>-->
+<!--    <li th:each="viewProDTO : ${viewProDTO}">-->
+<!--        <a th:href="@{'/employers/add'}" th:text="${viewProDTO.firstName}"></a>-->
+<!--        <a th:href="@{'/employers/add'}" th:text="${viewProDTO.serviceName}"></a>-->
+
+<!--    </li>-->
+<!--</ul>-->
+
+
+<div class="container body-content">
+    <h1> Welcome </h1>
+
+    <h2>Please select a service below: </h2>
+<ul>
+    <li>Plumbing</li>
+    <li>Carpentry</li>
+    <li>Painter</li>
+    <li>Handyman</li>
+    <li>House Cleaning</li>
+</ul>
+</div>
+
+</body>
+</html>

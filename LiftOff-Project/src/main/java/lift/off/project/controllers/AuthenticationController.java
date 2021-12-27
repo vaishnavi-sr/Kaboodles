@@ -82,8 +82,8 @@ public class AuthenticationController{
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        if(newUser.getRegisteredType().equals("Customer")){
-            return "customer/listServices";
+        if(newUser.getRegisteredType().equals("customer")){
+            return "customers/index";
         }else {
            // model.addAttribute("title", "ProServiceRegister");
             //model.addAttribute("proServiceDTO",new ProServiceDTO());

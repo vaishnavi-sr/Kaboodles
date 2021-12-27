@@ -8,6 +8,10 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Pro  {
 
+    public Pro(){
+
+    }
+
     @Id
     @GeneratedValue
     @NotNull
@@ -59,10 +63,12 @@ public class Pro  {
     }
 
 
-
-    public Pro() {}
-
-
+    public Pro(int id, int registeredProID, String homeServiceType, String location) {
+        this.id = id;
+        this.registeredProID = registeredProID;
+        this.homeServiceType = homeServiceType;
+        this.location = location;
+    }
 }
 
 

@@ -1,14 +1,20 @@
 package lift.off.project.controllers;
 
 import lift.off.project.models.Customer;
-import lift.off.project.models.Employer;
+import lift.off.project.models.User;
 import lift.off.project.models.data.CustomerRepository;
+import lift.off.project.models.data.UserRepository;
+import models.dto.RegisterFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -19,16 +25,27 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     private Customer newCustomer;
 
     @GetMapping("")
-    public String index(Model model){
-        model.addAttribute("customers",customerRepository.findAll());
+    public String index(Model model, HttpServletRequest request){
+        int userId = (int) request.getSession().getAttribute("user");
+        Optional<User> user = userRepository.findById(userId);
+        //If we want to use model, we can use user
+       // model.addAttribute("user",user);
+        //If we want to use DTO, we need to create RegisterFormDTO object and set the data
+        RegisterFormDTO registerFormDTO = new RegisterFormDTO();
+        registerFormDTO.setFirstName(user.get().getFirstName());
+        model.addAttribute("registerFormDTO",registerFormDTO);
         return "customers/index";
     }
 
-    @GetMapping("add")
-    public String displayAddCustomerForm(@RequestParam(required = false) Integer customerId, Model model){
+    @GetMapping("viewServices")
+    public String displayAddCustomerForm(Model model){
+
 
         model.addAttribute("Name","Customers");
         model.addAttribute(new Customer());
@@ -49,16 +66,9 @@ public class CustomerController {
         return "redirect:";
     }
 
-    @GetMapping("view/{customerId}")
-    public String displayViewCustomer(Model model, @PathVariable int customerId){
 
-        Optional optCustomer = customerRepository.findById(customerId);
-        if (optCustomer.isPresent()){
-            Customer customer = (Customer) optCustomer.get();
-            model.addAttribute("customer", customer);
-            return "customers/view";
-        } else {
-            return "redirect:../";
-        }
     }
-}
+
+
+
+

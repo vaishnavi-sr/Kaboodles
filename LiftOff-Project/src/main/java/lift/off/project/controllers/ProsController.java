@@ -47,10 +47,9 @@ public class ProsController {
         List<Pro> proList = (List<Pro>) proRepository.findAll();
         for(User user:userPros) {
             for(Pro pro:proList){
-               if(pro.getRegisteredProID()== user.getId()){
+              if(pro.getRegisteredProID()== user.getId()){
                    ViewProDTO viewProDTO = new ViewProDTO();
-                   pro.getLocation();
-                   pro.getHomeServiceType();
+                   viewProDTO.setServiceName(pro.getHomeServiceType());
                    viewProDTO.setFirstName(user.getFirstName());
                    viewProDTO.setLastName(user.getLastName());
                    viewProDTOList.add(viewProDTO);
@@ -59,6 +58,7 @@ public class ProsController {
 
         }
        // List<User> proUsers = user.stream().filter("pro").collect(Collectors.toList());
+        System.out.println("view pro dto list size is +++============ "+viewProDTOList);
         model.addAttribute("viewProDTO",viewProDTOList);
         model.addAttribute("title", "ProServiceRegister");
 
