@@ -3,6 +3,7 @@ package lift.off.project.controllers;
 import lift.off.project.models.Customer;
 import lift.off.project.models.User;
 import lift.off.project.models.data.CustomerRepository;
+import lift.off.project.models.data.HomeServiceRepository;
 import lift.off.project.models.data.UserRepository;
 import models.dto.RegisterFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class CustomerController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    HomeServiceRepository homeServiceRepository;
 
     private Customer newCustomer;
 
@@ -65,6 +69,38 @@ public class CustomerController {
         customerRepository.save(newCustomer);
         return "redirect:";
     }
+
+//    @GetMapping("view")
+//    public String displayViewJob(Model model) {
+//        List<User> users = (List<User>) userRepository.findAll();
+//        List<User> userCustomers = new ArrayList<>();
+//        //Iterate user and write if condtion pro and add to new list object
+//        for(User user:users){
+//            if(user.getRegisteredType().equals("customer")){
+//                userCustomers.add(user);
+//            }
+//        }
+//        List<ViewCustomerDTO> viewCustomerDTOList = new ArrayList<>();
+//
+//        //All Pro Data
+//        List<Customer> customerList = (List<Customer>) CustomerRepository.findAll();
+//        for(User user:userCustomers) {
+//            for(Customer customer:customerList){
+//                if(customer.getRegisteredType()== user.getRegisteredType()){
+//                    ViewCustomerDTO viewCustomerDTO = new ViewCustomerDTO();
+//                    viewCustomerDTO.setServiceName(customer.getHomeServiceType());
+//                    viewCustomerDTO.setFirstName(user.getFirstName());
+//                    viewCustomerDTO.setLastName(user.getLastName());
+//                    viewCustomerDTO.setLocation(customer.getLocation());
+//                    viewCustomerDTOList.add(viewCustomerDTO);
+//                }
+//            }
+//
+//        }
+//
+//
+//        return "";
+//    }
 
 
     }

@@ -52,6 +52,7 @@ public class ProsController {
                    viewProDTO.setServiceName(pro.getHomeServiceType());
                    viewProDTO.setFirstName(user.getFirstName());
                    viewProDTO.setLastName(user.getLastName());
+                  viewProDTO.setLocation(pro.getLocation());
                    viewProDTOList.add(viewProDTO);
                }
             }
@@ -60,7 +61,7 @@ public class ProsController {
        // List<User> proUsers = user.stream().filter("pro").collect(Collectors.toList());
         System.out.println("view pro dto list size is +++============ "+viewProDTOList);
         model.addAttribute("viewProDTO",viewProDTOList);
-        model.addAttribute("title", "ProServiceRegister");
+        model.addAttribute("title", "List Of Services");
 
         return "/proService/view";
 

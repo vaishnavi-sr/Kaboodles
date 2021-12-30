@@ -3,13 +3,9 @@ package lift.off.project.models;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Customer extends  AbstractEntity2 {
@@ -33,6 +29,28 @@ public class Customer extends  AbstractEntity2 {
     @NotNull
     @Size(max=20)
     private String registeredType;
+
+    public String getHomeServiceType() {
+        return homeServiceType;
+    }
+
+    public void setHomeServiceType(String homeServiceType) {
+        this.homeServiceType = homeServiceType;
+    }
+
+    @NotNull
+    private String homeServiceType;
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    @NotNull
+    private String location;
 
 
 //    @ManyToMany

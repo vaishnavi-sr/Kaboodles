@@ -1,14 +1,26 @@
 package models.dto;
 
-public class ViewProDTO {
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-
-
+public class ViewCustomerDTO {
 
     private String FirstName;
     private String lastName;
     private String serviceName;
     private String location;
+
+    public String getRegisteredType() {
+        return registeredType;
+    }
+
+    public void setRegisteredType(String registeredType) {
+        this.registeredType = registeredType;
+    }
+
+    @NotNull
+    @Size(max=20)
+    private String registeredType;
 
 
     public String getFirstName() {
@@ -42,8 +54,4 @@ public class ViewProDTO {
     public void setLocation(String location) {
         this.location = location;
     }
-
-
-
-
 }
