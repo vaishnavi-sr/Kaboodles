@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Pro  {
+public class Pro extends AbstractEntity2 {
 
     public Pro(){
 
