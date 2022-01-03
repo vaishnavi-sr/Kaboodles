@@ -10,10 +10,6 @@ public class ProServiceDTO {
     @NotNull
     private String homeServiceType;
 
-
-
-
-
     @NotNull
     private String location;
 

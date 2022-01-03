@@ -5,10 +5,19 @@ import javax.validation.constraints.Size;
 
 public class ViewCustomerDTO {
 
-    private String FirstName;
+    private String firstName;
     private String lastName;
+    private String username;
     private String serviceName;
     private String location;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUserName(String username) {
+        this.username = username;
+    }
 
     public String getRegisteredType() {
         return registeredType;
@@ -23,16 +32,18 @@ public class ViewCustomerDTO {
     private String registeredType;
 
 
-    public String getFirstName() {
-        return FirstName;
-    }
 
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {
@@ -53,5 +64,9 @@ public class ViewCustomerDTO {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+
+    public void setUsername(String username) {
     }
 }

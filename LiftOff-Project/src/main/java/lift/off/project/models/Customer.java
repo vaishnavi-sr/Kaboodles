@@ -27,19 +27,19 @@ public class Customer extends  AbstractEntity2 {
     private String pwHash;
 
     @NotNull
+    private String homeServiceType;
+
+
+    @NotNull
     @Size(max=20)
     private String registeredType;
 
-    public String getHomeServiceType() {
-        return homeServiceType;
-    }
-
-    public void setHomeServiceType(String homeServiceType) {
-        this.homeServiceType = homeServiceType;
-    }
-
     @NotNull
-    private String homeServiceType;
+    @Size(max=20)
+    private String userName;
+
+
+
 
     public String getLocation() {
         return location;
@@ -105,6 +105,22 @@ public class Customer extends  AbstractEntity2 {
 
     public void setRegisteredType(String registeredType) {
         this.registeredType = registeredType;
+    }
+
+    public String getHomeServiceType() {
+        return homeServiceType;
+    }
+
+    public void setHomeServiceType(String homeServiceType) {
+        this.homeServiceType = homeServiceType;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
 

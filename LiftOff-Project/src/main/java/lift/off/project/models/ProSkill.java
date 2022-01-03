@@ -12,6 +12,9 @@ import java.util.List;
 public class ProSkill extends AbstractEntity2 {
 
     @ManyToMany(mappedBy = "proSkills")
+    private List<Pro> pros = new ArrayList<Pro>();
+
+    @ManyToMany(mappedBy = "proSkills")
     private List<HomeService> homeServices = new ArrayList<HomeService>();
 
     @NotBlank(message = "Description is required")

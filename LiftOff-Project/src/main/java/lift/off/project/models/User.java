@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-public class User extends AbstractEntity {
+public class User extends AbstractEntity2 {
 
     @NotBlank(message = "First Name is required")
     @Size(max = 50, message = "Must be within 50 characters")
@@ -78,4 +78,12 @@ public class User extends AbstractEntity {
     }
 
 
+    public String getUserName() {
+        String username = null;
+        return null;
+    }
+
+    public void setUserName(String userName) {
+        this.username = username;
+    }
 }

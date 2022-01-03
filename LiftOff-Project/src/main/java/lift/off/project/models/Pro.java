@@ -1,16 +1,28 @@
 package lift.off.project.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class Pro  {
+public class Pro extends AbstractEntity2 {
 
-    public Pro(){
+    @ManyToMany
+//   @JoinTable(name = "pro_pro_skills",
+//            joinColumns = @JoinColumn(name = "pro_id", referencedColumnName = "pro_skills_id"))
+    private List<ProSkill> proSkills;
 
-    }
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+
+    @ManyToMany
+    private List<ProSkill> ProSkills = new ArrayList<>();
+
+
 
     @Id
     @GeneratedValue
@@ -31,6 +43,14 @@ public class Pro  {
 
     @NotNull
     private String location;
+
+    public List<ProSkill> getProSkills() {
+        return proSkills;
+    }
+
+    public void setProSkills(List<ProSkill> proSkills) {
+        this.proSkills = proSkills;
+    }
 
 
     public void setId(int id) {
@@ -62,13 +82,30 @@ public class Pro  {
         this.location = location;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
 
-    public Pro(int id, int registeredProID, String homeServiceType, String location) {
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+
+    public Pro(){
+
+    }
+
+
+
+
+    public Pro(int id, int registeredProID, String homeServiceType, String location,List<ProSkill>someProSkills){
         this.id = id;
         this.registeredProID = registeredProID;
         this.homeServiceType = homeServiceType;
         this.location = location;
+        this.ProSkills = someProSkills;
     }
+
 }
 
 

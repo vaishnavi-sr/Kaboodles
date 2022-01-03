@@ -6,6 +6,7 @@ import lift.off.project.models.data.CustomerRepository;
 import lift.off.project.models.data.HomeServiceRepository;
 import lift.off.project.models.data.UserRepository;
 import models.dto.RegisterFormDTO;
+import models.dto.ViewCustomerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -53,7 +56,7 @@ public class CustomerController {
 
         model.addAttribute("Name","Customers");
         model.addAttribute(new Customer());
-        model.addAttribute("categories",customerRepository.findAll());
+        model.addAttribute("customer",customerRepository.findAll());
         return "customers/add";
     }
 
@@ -70,37 +73,30 @@ public class CustomerController {
         return "redirect:";
     }
 
-//    @GetMapping("view")
-//    public String displayViewJob(Model model) {
-//        List<User> users = (List<User>) userRepository.findAll();
-//        List<User> userCustomers = new ArrayList<>();
-//        //Iterate user and write if condtion pro and add to new list object
-//        for(User user:users){
-//            if(user.getRegisteredType().equals("customer")){
-//                userCustomers.add(user);
-//            }
-//        }
-//        List<ViewCustomerDTO> viewCustomerDTOList = new ArrayList<>();
-//
-//        //All Pro Data
-//        List<Customer> customerList = (List<Customer>) CustomerRepository.findAll();
-//        for(User user:userCustomers) {
-//            for(Customer customer:customerList){
-//                if(customer.getRegisteredType()== user.getRegisteredType()){
-//                    ViewCustomerDTO viewCustomerDTO = new ViewCustomerDTO();
-//                    viewCustomerDTO.setServiceName(customer.getHomeServiceType());
-//                    viewCustomerDTO.setFirstName(user.getFirstName());
-//                    viewCustomerDTO.setLastName(user.getLastName());
-//                    viewCustomerDTO.setLocation(customer.getLocation());
-//                    viewCustomerDTOList.add(viewCustomerDTO);
-//                }
-//            }
-//
-//        }
-//
-//
-//        return "";
-//    }
+    @GetMapping("view")
+    public String displayViewJob(Model model) {
+        List<User> users = (List<User>) userRepository.findAll();
+        List<User> userCustomers = new ArrayList<>();
+        //Iterate user and write if condtion pro and add to new list object
+        for(User user:users){
+            if(user.getRegisteredType().equals("customer")){
+                userCustomers.add(user);
+            }
+        }
+        List<ViewCustomerDTO> viewCustomerDTOList = new ArrayList<>();
+        for(User userCustomer:userCustomers){
+            ViewCustomerDTO viewCustomerDTO = new ViewCustomerDTO();
+            viewCustomerDTO.setFirstName(userCustomer.getFirstName());
+            viewCustomerDTO.setLastName(userCustomer.getLastName());
+            viewCustomerDTO.setUsername(userCustomer.getUsername());
+            
+            viewCustomerDTOList.add(viewCustomerDTO);
+
+        }
+        model.addAttribute("customers",viewCustomerDTOList);
+
+        return "customers/view";
+    }
 
 
     }

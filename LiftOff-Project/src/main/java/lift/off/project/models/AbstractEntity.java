@@ -52,4 +52,5 @@ public abstract class AbstractEntity {
         return Objects.hash(id);
     }
 
+    public abstract String getUserName();
 }
