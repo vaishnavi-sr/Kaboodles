@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-public class AuthenticationController{
+public class UserController {
     @Autowired
     UserRepository userRepository;
 

@@ -44,29 +44,29 @@ public class ProsController {
         List<User> users = (List<User>) userRepository.findAll();
         List<User> userPros = new ArrayList<>();
         //Iterate user and write if condtion pro and add to new list object
-       for(User user:users){
-           if(user.getRegisteredType().equals("pro")){
-               userPros.add(user);
-           }
-       }
-       List<ViewProDTO> viewProDTOList = new ArrayList<>();
+        for(User user:users){
+            if(user.getRegisteredType().equals("pro")){
+                userPros.add(user);
+            }
+        }
+        List<ViewProDTO> viewProDTOList = new ArrayList<>();
 
         //All Pro Data
         List<Pro> proList = (List<Pro>) proRepository.findAll();
         for(User user:userPros) {
             for(Pro pro:proList){
-              if(pro.getRegisteredProID()== user.getId()){
-                   ViewProDTO viewProDTO = new ViewProDTO();
-                   viewProDTO.setServiceName(pro.getHomeServiceType());
-                   viewProDTO.setFirstName(user.getFirstName());
-                   viewProDTO.setLastName(user.getLastName());
-                  viewProDTO.setLocation(pro.getLocation());
-                   viewProDTOList.add(viewProDTO);
-               }
+                if(pro.getRegisteredProID()== user.getId()){
+                    ViewProDTO viewProDTO = new ViewProDTO();
+//                    viewProDTO.setServiceName(pro.getHomeServiceType());
+//                    viewProDTO.setFirstName(user.getFirstName());
+//                    viewProDTO.setLastName(user.getLastName());
+                    viewProDTO.setLocation(pro.getLocation());
+                    viewProDTOList.add(viewProDTO);
+                }
             }
 
         }
-       // List<User> proUsers = user.stream().filter("pro").collect(Collectors.toList());
+        // List<User> proUsers = user.stream().filter("pro").collect(Collectors.toList());
         System.out.println("view pro dto list size is +++============ "+viewProDTOList);
         model.addAttribute("viewProDTO",viewProDTOList);
         model.addAttribute("title", "List Of Services");
@@ -122,13 +122,13 @@ public class ProsController {
         if (optCustomer.isEmpty()) {
             model.addAttribute("title", "Invalid Customer ID: " + customerId);
         } else {
-          Customer event = optCustomer.get();
+            Customer event = optCustomer.get();
             model.addAttribute("title", optCustomer.get() + " Details");
             model.addAttribute("customer", optCustomer);
         }
 
         customerRepository.save(newPro.getCustomer());
-            return "redirect:";
+        return "redirect:";
 
 
     }

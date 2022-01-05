@@ -9,13 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class ProSkill extends AbstractEntity2 {
+public class ProSkill extends AbstractEntity {
 
     @ManyToMany(mappedBy = "proSkills")
     private List<Pro> pros = new ArrayList<Pro>();
-
-    @ManyToMany(mappedBy = "proSkills")
-    private List<HomeService> homeServices = new ArrayList<HomeService>();
 
     @NotBlank(message = "Description is required")
     @Size(max = 500 , message = "Description must be less than 500 characters")
@@ -32,14 +29,8 @@ public class ProSkill extends AbstractEntity2 {
 
     public ProSkill() {}
 
-    public List<HomeService> getHomeServices() {
-        return homeServices;
+    @Override
+    public String getUserName() {
+        return null;
     }
-
-    public void setHomeServices(List<HomeService> homeServices) {
-        this.homeServices = homeServices;
-    }
-
-
-
 }

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Customer extends  AbstractEntity2 {
+public class Customer extends  AbstractEntity {
 
     @NotBlank(message = "First Name is required")
     @Size(max = 50, message = "Must be within 50 characters")

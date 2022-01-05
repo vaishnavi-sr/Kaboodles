@@ -3,7 +3,6 @@ package lift.off.project.controllers;
 import lift.off.project.models.Customer;
 import lift.off.project.models.User;
 import lift.off.project.models.data.CustomerRepository;
-import lift.off.project.models.data.HomeServiceRepository;
 import lift.off.project.models.data.UserRepository;
 import models.dto.RegisterFormDTO;
 import models.dto.ViewCustomerDTO;
@@ -32,8 +31,8 @@ public class CustomerController {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    HomeServiceRepository homeServiceRepository;
+//    @Autowired
+//    HomeServiceRepository homeServiceRepository;
 
     private Customer newCustomer;
 

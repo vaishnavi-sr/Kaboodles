@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Pro extends AbstractEntity2 {
+public class Pro extends AbstractEntity {
 
     @ManyToMany
 //   @JoinTable(name = "pro_pro_skills",
@@ -22,15 +22,9 @@ public class Pro extends AbstractEntity2 {
     @ManyToMany
     private List<ProSkill> ProSkills = new ArrayList<>();
 
-
-
-    @Id
-    @GeneratedValue
-    @NotNull
-    private int id;
-
-    public int getId() {
-        return id;
+    @Override
+    public String getUserName() {
+        return null;
     }
 
     @NotNull
@@ -52,10 +46,6 @@ public class Pro extends AbstractEntity2 {
         this.proSkills = proSkills;
     }
 
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getRegisteredProID() {
         return registeredProID;
@@ -99,7 +89,6 @@ public class Pro extends AbstractEntity2 {
 
 
     public Pro(int id, int registeredProID, String homeServiceType, String location,List<ProSkill>someProSkills){
-        this.id = id;
         this.registeredProID = registeredProID;
         this.homeServiceType = homeServiceType;
         this.location = location;

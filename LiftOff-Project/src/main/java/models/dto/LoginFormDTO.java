@@ -12,7 +12,7 @@ public class LoginFormDTO {
 
     @NotNull
     @NotBlank
-    @Size(min = 5, max = 30, message = "Invalid password. Must be between 5 and 30 characters.")
+    @Size(max = 30, message = "Invalid password. Must be between 5 and 30 characters.")
     private String password;
 
     public String getUsername() {

@@ -1,6 +1,6 @@
 package lift.off.project;
 
-import lift.off.project.controllers.AuthenticationController;
+import lift.off.project.controllers.UserController;
 import lift.off.project.models.User;
 import lift.off.project.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     UserRepository userRepository;
 
     @Autowired
-    AuthenticationController authenticationController;
+    UserController userController;
 
 //    home page that does not require being logged in to view, Whitelist
 
@@ -50,7 +50,7 @@ public boolean preHandle(HttpServletRequest request,
     }
 
     HttpSession session = request.getSession();
-    User user = authenticationController.getUserFromSession(session);
+    User user = userController.getUserFromSession(session);
 
     // The user is logged in
     if (user != null) {

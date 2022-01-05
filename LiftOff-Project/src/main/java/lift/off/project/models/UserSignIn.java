@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class UserSignIn extends AbstractEntity2 {
+public class UserSignIn extends AbstractEntity {
 
     @NotBlank(message = "Email is required")
     @Size(max = 50, message = "Must be within 50 characters")
@@ -23,4 +23,9 @@ public class UserSignIn extends AbstractEntity2 {
 
 
     public UserSignIn(){}
+
+    @Override
+    public String getUserName() {
+        return null;
+    }
 }
