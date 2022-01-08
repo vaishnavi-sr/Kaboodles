@@ -1,12 +1,10 @@
 package lift.off.project.models;
 
-import java.util.ArrayList;
-
 public class ProData {
 
 
 
-    public static ArrayList<Pro> findByColumnAndValue(String column, String value, Iterable<Pro> allPros) {
+   /* public static ArrayList<Pro> findByColumnAndValue(String column, String value, Iterable<Pro> allPros) {
 
         ArrayList<Pro> results = new ArrayList<>();
 
@@ -20,7 +18,7 @@ public class ProData {
         }
         for (Pro pro: allPros) {
 
-            String aValue = getFieldValue(pro, column);
+          //  String aValue = getFieldValue(pro, column);
 
             if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
                 results.add(pro);
@@ -28,9 +26,9 @@ public class ProData {
         }
 
         return results;
-    }
+    } */
 
-    public static String getFieldValue(Pro pro, String fieldName){
+   /* public static String getFieldValue(Pro pro, String fieldName){
         String theValue;
         if (fieldName.equals("name")){
             theValue = pro.getName();
@@ -41,10 +39,10 @@ public class ProData {
         }
 
         return theValue;
-    }
+    } */
 
 
-    public static ArrayList<Pro> findByValue(String value, Iterable<Pro> allPros) {
+   /* public static ArrayList<Pro> findByValue(String value, Iterable<Pro> allPros) {
         String lower_val = value.toLowerCase();
 
         ArrayList<Pro> results = new ArrayList<>();
@@ -65,6 +63,7 @@ public class ProData {
 
         return results;
     }
+    */
 
 
 }

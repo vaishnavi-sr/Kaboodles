@@ -3,12 +3,23 @@ package lift.off.project.models;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Customer extends  AbstractEntity {
+public class Customer {
+
+    public int getId() {
+        return id;
+    }
+
+    @Id
+    @GeneratedValue
+    @NotNull
+    private int id;
 
     @NotBlank(message = "First Name is required")
     @Size(max = 50, message = "Must be within 50 characters")
@@ -53,9 +64,6 @@ public class Customer extends  AbstractEntity {
     private String location;
 
 
-//    @ManyToMany
-//    @JoinColumn(name = "customer_id")
-//    private final List<HomeServices> homeServices = new ArrayList<>();
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -66,7 +74,6 @@ public class Customer extends  AbstractEntity {
         this.email = email;
         this.pwHash = encoder.encode(password);
         this.registeredType=registeredType;
-        super.setName(name);
     }
 
     public Customer() {}
@@ -107,13 +114,6 @@ public class Customer extends  AbstractEntity {
         this.registeredType = registeredType;
     }
 
-    public String getHomeServiceType() {
-        return homeServiceType;
-    }
-
-    public void setHomeServiceType(String homeServiceType) {
-        this.homeServiceType = homeServiceType;
-    }
 
     public String getUserName() {
         return userName;

@@ -2,11 +2,9 @@ package lift.off.project.controllers;
 
 import lift.off.project.models.Customer;
 import lift.off.project.models.Pro;
-import lift.off.project.models.ProSkill;
 import lift.off.project.models.User;
 import lift.off.project.models.data.CustomerRepository;
 import lift.off.project.models.data.ProRepository;
-import lift.off.project.models.data.ProSkillRepository;
 import lift.off.project.models.data.UserRepository;
 import models.dto.ProServiceDTO;
 import models.dto.ViewProDTO;
@@ -16,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +34,7 @@ public class ProsController {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    ProSkillRepository proSkillRepository;
+
 
 
     @GetMapping("/view")
@@ -57,10 +55,13 @@ public class ProsController {
             for(Pro pro:proList){
                 if(pro.getRegisteredProID()== user.getId()){
                     ViewProDTO viewProDTO = new ViewProDTO();
-//                    viewProDTO.setServiceName(pro.getHomeServiceType());
-//                    viewProDTO.setFirstName(user.getFirstName());
-//                    viewProDTO.setLastName(user.getLastName());
+                    viewProDTO.setServiceName(pro.getHomeServiceType());
+                    viewProDTO.setFirstName(user.getFirstName());
+                    viewProDTO.setLastName(user.getLastName());
                     viewProDTO.setLocation(pro.getLocation());
+                    viewProDTO.setEmailID(user.getUsername());
+                    viewProDTO.setContactNumber(pro.getContactNumber());
+                    viewProDTO.setCostPerHour(pro.getCostPerHour());
                     viewProDTOList.add(viewProDTO);
                 }
             }
@@ -86,23 +87,41 @@ public class ProsController {
     }
 
     @PostMapping("create")
-    public String processCreateEventForm(@ModelAttribute @Valid Pro newPro,
+    public String processCreateEventForm(@ModelAttribute @Valid ProServiceDTO newProServiceDTO, HttpServletRequest requst,
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create ProService");
-            return "proService/create";
-        }
-
-        proRepository.save(newPro);
+          return "proService/create";
+       }
+        Pro pro = new Pro();
+        int userId = (int)requst.getSession().getAttribute(userSessionKey);
+        pro.setHomeServiceType(newProServiceDTO.getHomeServiceType());
+        pro.setLocation(newProServiceDTO.getLocation());
+        pro.setCostPerHour(newProServiceDTO.getCostPerHour());
+        pro.setContactNumber(newProServiceDTO.getContactNumber());
+        pro.setRegisteredProID(userId);
+        proRepository.save(pro);
+        Optional<User> user = userRepository.findById(userId);
+        ViewProDTO viewProDTO = new ViewProDTO();
+        viewProDTO.setCostPerHour(newProServiceDTO.getCostPerHour());
+        viewProDTO.setLocation(newProServiceDTO.getLocation());
+        viewProDTO.setServiceName(newProServiceDTO.getHomeServiceType());
+        viewProDTO.setContactNumber(newProServiceDTO.getContactNumber());
+        viewProDTO.setFirstName(user.get().getFirstName());
+        viewProDTO.setEmailID(user.get().getUsername());
+        List<ViewProDTO> viewProDTOList = new ArrayList<>();
+        viewProDTOList.add(viewProDTO);
+        model.addAttribute("viewProDTO",viewProDTOList);
         return "/proService/view";
     }
 
     @GetMapping("add")
     public String displayAddJobForm(Model model) {
         model.addAttribute("title", "Add Pro");
-        model.addAttribute(new Pro());
+        model.addAttribute("proServiceDTO", new ProServiceDTO());
         model.addAttribute("customers",customerRepository.findAll());
-        model.addAttribute("proSkills",proSkillRepository.findAll());
+      //  model.addAttribute("proSkills",proSkillRepository.findAll());
+        model.addAttribute("pro",proRepository.findAll());
         return "add";
     }
 
@@ -114,8 +133,8 @@ public class ProsController {
             return "add";
         }
 
-        List<ProSkill> proSkillObjs = (List<ProSkill>) proSkillRepository.findAllById(proSkills);
-        newPro.setProSkills(proSkillObjs);
+      //  List<ProSkill> proSkillObjs = (List<ProSkill>) proSkillRepository.findAllById(proSkills);
+      //  newPro.setProSkills(proSkillObjs);
 
         Optional<Customer> optCustomer = customerRepository.findById(customerId);
 
@@ -127,7 +146,7 @@ public class ProsController {
             model.addAttribute("customer", optCustomer);
         }
 
-        customerRepository.save(newPro.getCustomer());
+    //    customerRepository.save(newPro.getCustomer());
         return "redirect:";
 
 

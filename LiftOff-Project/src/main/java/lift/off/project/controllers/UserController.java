@@ -83,6 +83,7 @@ public class UserController {
         setUserInSession(request.getSession(), newUser);
 
         if(newUser.getRegisteredType().equals("customer")){
+
             return "customers/index";
         }else {
            // model.addAttribute("title", "ProServiceRegister");
@@ -127,8 +128,19 @@ public class UserController {
         }
 
         setUserInSession(request.getSession(), theUser);
+        if(theUser.getRegisteredType().equals("customer")){
+            RegisterFormDTO registerFormDTO = new RegisterFormDTO();
+            registerFormDTO.setFirstName(theUser.getFirstName());
+            model.addAttribute("registerFormDTO",registerFormDTO);
+            return "customers/index";
+        }else {
+            // model.addAttribute("title", "ProServiceRegister");
+            //model.addAttribute("proServiceDTO",new ProServiceDTO());
+            // return "proService/create";
+            return "redirect:proService/create";
+        }
 
-        return "redirect:";
+       // return "redirect:";
     }
 
 //    Logging Out
@@ -143,7 +155,7 @@ public class UserController {
     public String index(Model model) {
 
         model.addAttribute("title", "My Jobs");
-     //   model.addAttribute("jobs",jobRepository.findAll());
+
 
         return "index";
     }

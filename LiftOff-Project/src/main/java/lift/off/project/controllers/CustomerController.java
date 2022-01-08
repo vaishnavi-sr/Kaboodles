@@ -25,6 +25,8 @@ import java.util.Optional;
 @RequestMapping("customers")
 public class CustomerController {
 
+    private static final String userSessionKey = "user";
+
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -88,7 +90,6 @@ public class CustomerController {
             viewCustomerDTO.setFirstName(userCustomer.getFirstName());
             viewCustomerDTO.setLastName(userCustomer.getLastName());
             viewCustomerDTO.setUsername(userCustomer.getUsername());
-            
             viewCustomerDTOList.add(viewCustomerDTO);
 
         }

@@ -9,13 +9,9 @@
 <p th:unless="${customers} and ${customers.size()}">no jobs!</p>
 
 <div class="container body-content">
-    <h2>Customers</h2>
+    <h2>Customer Name</h2>
     <p th:text="${registerFormDTO.firstName}"/>
-   <ul>
-        <li th:each="customer : ${customers}">
-            <a th:href="@{'/customers/view/' + ${customer.id}}" th:text="${customer.name}"></a>
-        </li>
-    </ul>
+
     <a th:href="@{'/proService/view'}">View Services</a>
 
 </div>

@@ -7,6 +7,8 @@ public class ViewCustomerDTO {
 
     private String firstName;
     private String lastName;
+
+
     private String username;
     private String serviceName;
     private String location;
@@ -15,9 +17,15 @@ public class ViewCustomerDTO {
         return username;
     }
 
-    public void setUserName(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
+
+
+    @NotNull
+    @Size(max=20)
+    private String registeredType;
+
 
     public String getRegisteredType() {
         return registeredType;
@@ -26,12 +34,6 @@ public class ViewCustomerDTO {
     public void setRegisteredType(String registeredType) {
         this.registeredType = registeredType;
     }
-
-    @NotNull
-    @Size(max=20)
-    private String registeredType;
-
-
 
 
     public String getLastName() {
@@ -67,6 +69,5 @@ public class ViewCustomerDTO {
     }
 
 
-    public void setUsername(String username) {
-    }
+
 }

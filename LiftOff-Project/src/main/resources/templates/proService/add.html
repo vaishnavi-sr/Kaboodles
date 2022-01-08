@@ -10,46 +10,24 @@
 <form method="post" style="max-width:600px;">
     <div class="form-group">
         <label th:for="name">First Name</label>
-        <input class="form-control" th:field="${pro.name}" />
-        <span th:errors="${pro.name}" class="error"></span>
+        <input class="form-control" th:field="${pro.firstName}" />
+        <span th:errors="${pro.firstName}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="name">Last Name</label>
-        <input class="form-control" th:field="${pro.name}" />
-        <span th:errors="${pro.name}" class="error"></span>
+        <input class="form-control" th:field="${pro.lastName}" />
+        <span th:errors="${pro.lastName}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="name">Email ID</label>
-        <input class="form-control" th:field="${pro.name}" />
-        <span th:errors="${pro.name}" class="error"></span>
+        <input class="form-control" th:field="${pro.email}" />
+        <span th:errors="${pro.email}" class="error"></span>
     </div>
 
-    <div class="form-group">
-        <label th:for="name">Password</label>
-        <input class="form-control" th:field="${proService.name}" />
-        <span th:errors="${proService.name}" class="error"></span>
-    </div>
 
-        <div class="form-group">
-            <label th:for="customer">Customer</label>
-            <select name="customerId">
-                <option th:each="customer : ${customers}"
-                        th:text="${customer.name}"
-                        th:value="${customer.id}"></option>
-            </select>
-            <a th:href="@{'/customers/add'}">Add Employers</a>
-        </div>
 
-        <div class="form-group">
-            <label th:for="proSkills">Pro Skills</label>
-            <th:block th:each="proSkill : ${proSkills}">
-                <input type="checkbox" name="proSkills" th:value="${proSkill.id}">
-                <label th:text="${proSkill.name}"></label>
-            </th:block>
-            <a th:href="@{'/proSkills/add'}">Add Pro Skills</a>
-        </div>
 
     <input type="submit" value="Create Account"  class="btn btn-success"/>
 </form>

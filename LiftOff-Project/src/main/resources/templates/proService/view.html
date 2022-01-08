@@ -8,20 +8,27 @@
 <div th:replace="fragments :: page-header"></div>
 <div class="container body-content">
     <h1 th:text="'Kaboodles' + ${title == null ? '' : ' :: ' + title}"> ></h1>
-    <table class="table table-striped">
+    <table class="table table-striped" action="/view">
         <thead>
         <tr>
             <th>First Name</th>
-            <th>Last Name</th>
+         <!--   <th>Last Name</th> -->
             <th>Service Type</th>
+            <th>Cost Per Hour</th>
             <th>Location</th>
+            <th>Email ID</th>
+            <th>Contact Number</th>
+
         </tr>
         </thead>
         <tr th:each="viewPro : ${viewProDTO}">
             <td th:text="${viewPro.firstName}" ></td>
-            <td th:text="${viewPro.lastName}"></td>
+          <!--  <td th:text="${viewPro.lastName}"></td> -->
             <td th:text="${viewPro.serviceName}"></td>
+            <td th:text="${viewPro.costPerHour}"></td>
             <td th:text="${viewPro.location}"></td>
+            <td th:text="${viewPro.emailID}"></td>
+            <td th:text="${viewPro.contactNumber}"></td>
         </tr>
 
     </table>

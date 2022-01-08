@@ -13,6 +13,31 @@ public class ProServiceDTO {
     @NotNull
     private String location;
 
+    @NotNull
+    private int costPerHour;
+
+    @NotNull
+    private String contactNumber;
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public int getCostPerHour() {
+        return costPerHour;
+    }
+
+    public void setCostPerHour(int costPerHour) {
+        this.costPerHour = costPerHour;
+    }
+
+
+
+
     public int getRegisteredProID() {
         return registeredProID;
     }

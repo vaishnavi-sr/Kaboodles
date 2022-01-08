@@ -1,17 +1,15 @@
 package lift.off.project.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
 public class ProSkill extends AbstractEntity {
 
-    @ManyToMany(mappedBy = "proSkills")
+   // @ManyToMany(mappedBy = "proSkills")
     private List<Pro> pros = new ArrayList<Pro>();
 
     @NotBlank(message = "Description is required")
