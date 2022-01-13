@@ -66,3 +66,16 @@ img{
  height: 350px;
  margin: 10px 25px 25px 10px;
  }
+
+
+
+.bg-img {
+  /* The image used */
+  background-image: url("list of services.jpg");
+  min-height: 380px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}

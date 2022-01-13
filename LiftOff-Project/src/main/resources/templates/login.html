@@ -7,6 +7,7 @@
 <nav th:replace="fragments :: page-header"></nav>
 
 <div class="container body-content">
+
     <h1>Welcome to Kaboodles</h1>
     <h2>Login</h2>
 <form method="post" action="/login">
@@ -26,8 +27,10 @@
     <input type="submit" class="btn btn-primary" value="Log In" />
 </form>
 
-<p>Don't have an account? <a href="/register">Register for one.</a></p>
-
+    <p>Don't have an account? <a href="/register">Register for one.</a></p>
+    <img th:src="@{/images/list of services.jpg}"  class="bg-img"/>
 </div>
+
+<div class="bg-img"></div>
 </body>
 </html>
