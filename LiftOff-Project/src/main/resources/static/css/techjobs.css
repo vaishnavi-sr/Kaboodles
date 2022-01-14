@@ -61,21 +61,25 @@ div.job-listing {
     background-color: #e4e4e4;
 }
 
-img{
- width: 750px;
+.img1{
+ width: 950px;
  height: 350px;
  margin: 10px 25px 25px 10px;
  }
 
 
 
-.bg-img {
+.img2 {
   /* The image used */
   background-image: url("list of services.jpg");
-  min-height: 380px;
+  min-height: 280px;
   /* Center and scale the image nicely */
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-color:transparent;
   position: relative;
+  background-position: top;
+  float:right
+
+
 }
