@@ -71,7 +71,7 @@ div.job-listing {
 
 .img2 {
   /* The image used */
-  background-image: url("list of services.jpg");
+
   min-height: 280px;
   /* Center and scale the image nicely */
   background-position: center;
@@ -80,6 +80,18 @@ div.job-listing {
   position: relative;
   background-position: top;
   float:right
+}
 
+.img3 {
+  /* The image used */
 
+  min-height: 280px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-size: cover;
+  background-color:transparent;
+  position: relative;
+  background-position: top;
+  float:right;
+  opacity:1.5;
 }

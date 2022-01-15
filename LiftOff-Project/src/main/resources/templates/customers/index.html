@@ -9,12 +9,14 @@
 <p th:unless="${customers} and ${customers.size()}">no jobs!</p>
 
 <div class="container body-content">
+    <div> <img th:src="@{/images/HSPic1.jpg}" class="img3" />
     <h2>Customer Name</h2>
     <p th:text="${registerFormDTO.firstName}"/>
 
     <a th:href="@{'/proService/view'}">View Services</a>
 
 </div>
+    </div>
 
 </body>
 </html>
