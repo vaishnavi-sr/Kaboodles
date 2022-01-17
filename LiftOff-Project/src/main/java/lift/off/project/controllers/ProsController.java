@@ -152,6 +152,22 @@ public class ProsController {
 
     }
 
+    @GetMapping("/edit")
+    public String displayEditForm(Model model,@PathVariable int Id) {
+        // controller code will go here
+        model.addAttribute("title","Edit Pro Details");
+        model.addAttribute("proServiceDTO",new ProServiceDTO());
+        model.addAttribute("pro",proRepository.findById(Id));
+        model.addAttribute("customers",customerRepository.findById(Id));
+
+        return "proService/edit";
+    }
+
+//    @PostMapping("/edit")
+//    public String processEditForm(int eventId, String name, String description) {
+//        // controller code will go here
+//    }
+
 
 
 

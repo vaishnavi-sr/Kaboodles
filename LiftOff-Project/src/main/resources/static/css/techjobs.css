@@ -7,7 +7,7 @@ td, th {
 }
 
 th {
-    text-align: center;
+    text-align: left;
 }
 
 td {
@@ -44,6 +44,8 @@ label {
 .centered {
     text-align: center;
 }
+
+
 
 p {
     vertical-align: top;
@@ -93,5 +95,9 @@ div.job-listing {
   position: relative;
   background-position: top;
   float:right;
-  opacity:1.5;
+  opacity:0.8;
+}
+
+.leftAlignText {
+    text-align: center;
 }
