@@ -8,6 +8,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Pro  {
 
+
+
     @Id
     @GeneratedValue
     @NotNull

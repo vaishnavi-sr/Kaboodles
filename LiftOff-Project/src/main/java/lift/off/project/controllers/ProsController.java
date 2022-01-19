@@ -164,13 +164,14 @@ public class ProsController {
         proServiceDTO.setContactNumber(pro.get().getContactNumber());
         proServiceDTO.setCostPerHour(pro.get().getCostPerHour());
         proServiceDTO.setRegisteredProID(pro.get().getRegisteredProID());
+        proServiceDTO.setProId(proId);
         model.addAttribute("proServiceDTO",proServiceDTO);
         model.addAttribute("proId",proId);
         return "proService/edit";
     }
 
     @PostMapping("/edit")
-    public String processEditForm(Integer proId,@ModelAttribute @Valid ProServiceDTO newProServiceDTO, HttpServletRequest requst,
+    public String processEditForm(@ModelAttribute @Valid ProServiceDTO newProServiceDTO, HttpServletRequest requst,
                                   Errors errors, Model model) {
         // controller code will go here
 
@@ -178,10 +179,10 @@ public class ProsController {
             model.addAttribute("title", "Create ProService");
             return "proService/create";
         }
-        Optional<Pro> proOptional  = proRepository.findById(proId);
+        Optional<Pro> proOptional  = proRepository.findById(newProServiceDTO.getProId());
         Pro pro = proOptional.get();
         int userId = (int)requst.getSession().getAttribute(userSessionKey);
-
+        pro.setId(newProServiceDTO.getProId());
         pro.setHomeServiceType(newProServiceDTO.getHomeServiceType());
         pro.setLocation(newProServiceDTO.getLocation());
         pro.setCostPerHour(newProServiceDTO.getCostPerHour());

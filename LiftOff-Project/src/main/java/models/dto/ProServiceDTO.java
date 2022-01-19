@@ -4,6 +4,17 @@ import javax.validation.constraints.NotNull;
 
 public class ProServiceDTO {
 
+
+    private int proId;
+
+    public int getProId() {
+        return proId;
+    }
+
+    public void setProId(int proId) {
+        this.proId = proId;
+    }
+
     @NotNull
     private int registeredProID;
 

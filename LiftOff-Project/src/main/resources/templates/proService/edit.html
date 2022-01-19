@@ -41,7 +41,7 @@
             <p class="error" th:errors="${proServiceDTO.location}"></p>
 
         </div>
-        <input type="hidden" th:field="${proId}"  class="btn btn-primary" />
+        <input type="hidden" th:field="${proServiceDTO.proId}"  class="btn btn-primary" />
         <input type="hidden" th:field="${proServiceDTO.registeredProID}"  class="btn btn-primary" />
         <input type="submit" class="btn btn-primary" value="Update Pro Service" />
     </form>
