@@ -62,6 +62,7 @@ public class ProsController {
                     viewProDTO.setEmailID(user.getUsername());
                     viewProDTO.setContactNumber(pro.getContactNumber());
                     viewProDTO.setCostPerHour(pro.getCostPerHour());
+                    viewProDTO.setProId(pro.getId());
                     viewProDTOList.add(viewProDTO);
                 }
             }
@@ -153,21 +154,43 @@ public class ProsController {
     }
 
     @GetMapping("/edit")
-    public String displayEditForm(Model model,@PathVariable int Id) {
+    public String displayEditForm(Model model,@RequestParam Integer proId) {
         // controller code will go here
         model.addAttribute("title","Edit Pro Details");
-        model.addAttribute("proServiceDTO",new ProServiceDTO());
-        model.addAttribute("pro",proRepository.findById(Id));
-        model.addAttribute("customers",customerRepository.findById(Id));
-
+        Optional<Pro> pro  = proRepository.findById(proId);
+        ProServiceDTO proServiceDTO = new ProServiceDTO();
+        proServiceDTO.setHomeServiceType(pro.get().getHomeServiceType());
+        proServiceDTO.setLocation(pro.get().getLocation());
+        proServiceDTO.setContactNumber(pro.get().getContactNumber());
+        proServiceDTO.setCostPerHour(pro.get().getCostPerHour());
+        proServiceDTO.setRegisteredProID(pro.get().getRegisteredProID());
+        model.addAttribute("proServiceDTO",proServiceDTO);
+        model.addAttribute("proId",proId);
         return "proService/edit";
     }
 
-//    @PostMapping("/edit")
-//    public String processEditForm(int eventId, String name, String description) {
-//        // controller code will go here
-//    }
+    @PostMapping("/edit")
+    public String processEditForm(Integer proId,@ModelAttribute @Valid ProServiceDTO newProServiceDTO, HttpServletRequest requst,
+                                  Errors errors, Model model) {
+        // controller code will go here
 
+        if(errors.hasErrors()) {
+            model.addAttribute("title", "Create ProService");
+            return "proService/create";
+        }
+        Optional<Pro> proOptional  = proRepository.findById(proId);
+        Pro pro = proOptional.get();
+        int userId = (int)requst.getSession().getAttribute(userSessionKey);
+
+        pro.setHomeServiceType(newProServiceDTO.getHomeServiceType());
+        pro.setLocation(newProServiceDTO.getLocation());
+        pro.setCostPerHour(newProServiceDTO.getCostPerHour());
+        pro.setContactNumber(newProServiceDTO.getContactNumber());
+        pro.setRegisteredProID(userId);
+        proRepository.save(pro);
+
+        return "redirect:/proService/view";
+    }
 
 
 

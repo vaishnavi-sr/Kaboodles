@@ -18,6 +18,16 @@ public class ViewProDTO {
     private String contactNumber;
     private int costPerHour;
 
+    public int getProId() {
+        return proId;
+    }
+
+    public void setProId(int proId) {
+        this.proId = proId;
+    }
+
+    private int proId;
+
     public String getContactNumber() {
         return contactNumber;
     }

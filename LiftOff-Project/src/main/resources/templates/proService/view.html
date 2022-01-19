@@ -18,6 +18,7 @@
             <th>Location</th>
             <th>Email ID</th>
             <th>Contact Number</th>
+            <th>Action Edit/Delete </th>
 
         </tr>
         </thead>
@@ -29,6 +30,8 @@
             <td th:text="${viewPro.location}"></td>
             <td th:text="${viewPro.emailID}"></td>
             <td th:text="${viewPro.contactNumber}"></td>
+            <td><a th:href="'/proService/edit?proId=' + ${viewPro.proId}" th:text="Edit"></a></td>
+
         </tr>
 
     </table>
