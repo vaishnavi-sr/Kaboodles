@@ -9,14 +9,23 @@
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
     <title th:text="'Kaboodles' + ${title == null ? '' : ' :: ' + title}">Kaboodles</title>
+
+
 </head>
 
 <body>
 
+
 <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+
     <div class="container">
         <div class="navbar-header">
             <a th:href="@{/}" class="navbar-brand">Kaboodles</a>
+<!--            <nav class="navbar navbar-light bg-light">-->
+<!--                <a class="navbar-brand" href="#f9f9f9">-->
+<!--                    Light color background-->
+<!--                </a>-->
+<!--            </nav>-->
         </div>
         <ul class="nav" style="float:right;">
             <li th:if="${session.user}" class="nav navbar-nav"><a class="nav-link" href="/logout">Log out</a></li>
