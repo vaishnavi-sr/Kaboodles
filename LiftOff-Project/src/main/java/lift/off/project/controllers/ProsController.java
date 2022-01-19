@@ -112,7 +112,7 @@ public class ProsController {
         List<ViewProDTO> viewProDTOList = new ArrayList<>();
         viewProDTOList.add(viewProDTO);
         model.addAttribute("viewProDTO",viewProDTOList);
-        return "/proService/view";
+        return "/proService/index";
     }
 
     @GetMapping("add")

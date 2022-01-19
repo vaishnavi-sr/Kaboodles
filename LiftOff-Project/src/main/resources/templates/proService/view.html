@@ -5,9 +5,15 @@
 </head>
 <body>
 
+
+<div class="container body-content">
+    <div> <img th:src="@{/images/Customers.jpg}" class="img4" />
+
+
 <div th:replace="fragments :: page-header"></div>
-<div class="container body-content" background-color="blue">
-    <h1 th:text="'Kaboodles' + ${title == null ? '' : ' :: ' + title}"> ></h1>
+
+<div class="container body-content" >
+    <h3 th:text="'Pros' + ${title == null ? '' : ' :: ' + title}">Your Credentials</h3>
     <table class="table table-striped" action="/view">
         <thead>
         <tr>
@@ -36,17 +42,6 @@
 
 </div>
 
-<div class="container body-content">
-<!--    <h1> Welcome </h1>-->
-
-<!--    <h2>Please select a service below: </h2>-->
-<!--<ul>-->
-<!--    <li>Plumbing</li>-->
-<!--    <li>Carpentry</li>-->
-<!--    <li>Painter</li>-->
-<!--    <li>Handyman</li>-->
-<!--    <li>House Cleaning</li>-->
-<!--</ul>-->
 </div>
 
 </body>

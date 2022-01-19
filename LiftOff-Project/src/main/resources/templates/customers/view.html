@@ -7,8 +7,11 @@
 
 <nav th:replace="fragments :: page-header"></nav>
 
+<div> <img th:src="@{/images/Customers.jpg}" class="img4"/>
+
 <div class="container body-content">
-    <h1 th:text="'Kaboodles' + ${title == null ? '' : ' :: ' + title}"> ></h1>
+
+    <h1 th:text="'Customers' + ${title == null ? '' : ' :: ' + title}"> ></h1>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -19,7 +22,7 @@
         </tr>
         </thead>
         <tr th:each="customer : ${customers}">
-            <td th:text="${customer.firstName}" ></td>
+            <td th:href="@{'/proService/view/' + ${customer.username}}" th:text="${customer.firstName}" ></td>
             <td th:text="${customer.lastName}"></td>
             <td th:text="${customer.username}"></td>
         </tr>
