@@ -10,10 +10,15 @@
 
 <div class="container body-content">
     <div> <img th:src="@{/images/HSPic1.jpg}" class="img3" />
-    <h2>Customer Name</h2>
-    <p th:text="${registerFormDTO.firstName}"/>
+    <h2>Welcome</h2>
+    <h3 th:text="${registerFormDTO.firstName}"></h3>
+        <h4 style="text">
+            Thank you for choosing <strong>Kaboodles</strong>!
+        <a th:href="@{'/proService/view'}"><strong style="color:red;">Click Here</strong></a>
+            To find a list of professionals that can help you with your project!
+        </h4>
 
-    <a th:href="@{'/proService/view'}">View Services</a>
+
 
 </div>
     </div>

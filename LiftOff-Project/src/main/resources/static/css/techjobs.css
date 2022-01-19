@@ -67,6 +67,9 @@ div.job-listing {
  width: 950px;
  height: 350px;
  margin: 10px 25px 25px 10px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
  }
 
 
@@ -98,6 +101,15 @@ div.job-listing {
   opacity:0.8;
 }
 
+.img4{
+
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+
 .leftAlignText {
     text-align: center;
 }
+
