@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:width="http://www.w3.org/1999/xhtml"
+
+
+      xmlns:height="http://www.w3.org/1999/xhtml" xmlns:margin="http://www.w3.org/1999/xhtml" xmlns:c="">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h2><b>Kaboodles</b></h2>
+    <h3>Home Services</h3>
+    <h4><ul>
+        <li>Plumbing</li>
+        <li>Carpentry</li>
+        <li>Painter</li>
+        <li>Handyman</li>
+        <li>House Cleaning</li>
+        <li>And Many More</li>
+    </ul>
+    </h4>
+    <div>
+        <p><b>
+        When you need help around the house Kaboodle it!<br>
+        As a pro you can find customers.<br>
+        As a customer you can hire pros that can help you start or finish a project.
+        </b></p>
+        <img th:src="@{/images/R.jpg}" class="img1"/>
+    </div>
+
+</div>
+</body>
+</html>

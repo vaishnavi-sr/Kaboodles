@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <header th:replace="fragments :: page-header"></header>
+</head>
+<body class="container body-content">
+<div> <img th:src="@{/images/HSPic1.jpg}" class="img3" />
+
+<h1>Welcome Pro!</h1>
+    <h2>What is your expertise?</h2>
+
+
+
+<form method="post" action="create">
+
+    <div class="form-group">
+        <label>Home Service Type
+            <input class="form-control" th:field="${proServiceDTO.homeServiceType}" />
+        </label>
+        <p class="error" th:errors="${proServiceDTO.homeServiceType}"></p>
+    </div>
+    <div class="form-group">
+        <label>Cost Per Hour
+            <input class="form-control" th:field="${proServiceDTO.costPerHour}" />
+        </label>
+        <p class="error" th:errors="${proServiceDTO.costPerHour}"></p>
+    </div>
+    <div class="form-group">
+        <label>Contact Number
+            <input class="form-control" th:field="${proServiceDTO.contactNumber}" />
+        </label>
+        <p class="error" th:errors="${proServiceDTO.contactNumber}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Location
+            <input class="form-control" th:field="${proServiceDTO.location}" />
+        </label>
+        <p class="error" th:errors="${proServiceDTO.location}"></p>
+
+    </div>  <input type="submit" class="btn btn-primary" value="Create Service" />
+</form>
+    </div>
+
+
+
+
+</body>
+</html>

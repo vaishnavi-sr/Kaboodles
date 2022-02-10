@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+
+<div> <img th:src="@{/images/list of services.jpg}" class="img2"/>
+
+<h1>Welcome to Kaboodles</h1>
+<h2>Register here! </h2><br>
+
+<header th:replace="fragments :: page-header"></header>
+
+<form method="post" action="/register">
+
+    <div class="form-group">
+        <label>First Name
+            <input class="form-control" th:field="${registerFormDTO.firstName}" />
+        </label>
+        <p class="error" th:errors="${registerFormDTO.firstName}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Last Name
+            <input class="form-control" th:field="${registerFormDTO.lastName}" />
+        </label>
+        <p class="error" th:errors="${registerFormDTO.lastName}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Email
+            <input class="form-control" th:field="${registerFormDTO.username}" />
+        </label>
+        <p class="error" th:errors="${registerFormDTO.username}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Password
+            <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
+        </label>
+        <p class="error" th:errors="${registerFormDTO.password}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Verify Password
+            <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>Join as Pro or Customer?
+            <select th:field="${registerFormDTO.registeredType}">
+                <option value = ''>Select</option>
+                <option value='pro'>Pro</option>
+                <option value='customer'>Customer</option>
+            </select>
+        </label>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Register" />
+</form>
+</div>
+
+</body>
+</html>

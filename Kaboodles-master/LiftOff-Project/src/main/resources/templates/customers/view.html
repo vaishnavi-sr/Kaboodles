@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<div> <img th:src="@{/images/Customers.jpg}" class="img4"/>
+
+<div class="container body-content">
+
+    <h1 th:text="'Customers' + ${title == null ? '' : ' :: ' + title}"> </h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th text-align="left">First Name</th>
+            <th text-align="left">Last Name</th>
+            <th text-align="left">Email ID</th>
+
+        </tr>
+        </thead>
+        <tr th:each="customer : ${customers}">
+            <td th:href="@{'/proService/view/' + ${customer.username}}" th:text="${customer.firstName}" ></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.username}"></td>
+        </tr>
+
+    </table>
+</div>
+<!--    <textarea id="someId" name="someName" cols="20" rows="6"></textarea>-->
+<!--    var htmlCode = $("#someId").html();-->
+
+<!--    <!DOCTYPE html>-->
+<!--    <html>-->
+<!--    <body>-->
+
+    <h2>Text a Pro</h2>
+<!--    <p>Send a message to a professional</p>-->
+
+    <form action="/action_page.php">
+        <textarea name="message" rows="10" cols="30">Hello there pro.</textarea>
+        <br><br>
+        <input type="submit">
+    </form>
+
+<!--    </body>-->
+<!--    </html>-->
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<p th:unless="${customers} and ${customers.size()}">no jobs!</p>
+
+<div class="container body-content">
+   <div> <img th:src="@{/images/HSPic1.jpg}" class="img3" />
+      <h2>Welcome</h2>
+<!--      <h3 th:text="${registerFormDTO.firstName}"></h3>-->
+      <h3>
+         Thank you for choosing <strong>Kaboodles</strong>!
+         <a th:href="@{'/customers/view'}"><strong style="color:red;">Click Here</strong></a>
+         To find a list of customers that may need your assistance!
+      </h3>
+
+   </div>
+
+
+
+   </div>
+</div>
+
+</body>
+</html>
